@@ -1,0 +1,434 @@
+/* ...existing code... */
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes gradientMove {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.login-container {
+  position: relative;
+  width: 350px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  letter-spacing: 2px;
+  animation: textPop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes textPop {
+  0% { opacity: 0; transform: scale(0.8);}
+  80% { opacity: 1; transform: scale(1.1);}
+  100% { opacity: 1; transform: scale(1);}
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.input-group label {
+  color: #eee;
+  font-size: 0.9rem;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  pointer-events: none;
+  transition: 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+  background: transparent;
+  padding: 0 4px;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -12px;
+  left: 12px;
+  font-size: 0.75rem;
+  color: #a084ee;
+  background: rgba(255,255,255,0.15);
+  border-radius: 0.3rem;
+  padding: 0 6px;
+  animation: labelFloat 0.4s;
+}
+
+@keyframes labelFloat {
+  0% { top: 18px; font-size: 0.9rem; }
+  100% { top: -12px; font-size: 0.75rem; }
+}
+
+.input-group input {
+  width: 100%;
+  padding: 1.2rem 0.75rem 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: background 0.3s, box-shadow 0.3s;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px 0 rgba(118,75,162,0.08);
+}
+
+.input-group input:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 2px #a084ee;
+  animation: inputPulse 0.5s;
+}
+
+@keyframes inputPulse {
+  0% { box-shadow: 0 0 0 0 #a084ee; }
+  100% { box-shadow: 0 0 0 2px #a084ee; }
+}
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: linear-gradient(90deg, #fff, #e0c3fc, #fff);
+  background-size: 200% 200%;
+  color: #764ba2;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(118,75,162,0.08);
+  animation: buttonPop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes buttonPop {
+  0% { opacity: 0; transform: scale(0.8);}
+  80% { opacity: 1; transform: scale(1.1);}
+  100% { opacity: 1; transform: scale(1);}
+}
+
+button:hover {
+  background-position: 100% 0;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px 0 rgba(118,75,162,0.18);
+}
+
+.animated-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  z-index: 0;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  animation: float 6s infinite ease-in-out alternate, circleMove 12s infinite linear;
+}
+
+.circle:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  top: -30px;
+  left: -30px;
+  animation-delay: 0s, 0s;
+}
+
+.circle:nth-child(2) {
+  width: 60px;
+  height: 60px;
+  bottom: -20px;
+  right: -20px;
+  animation-delay: 2s, 6s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(-20px);}
+}
+
+@keyframes circleMove {
+  0% { filter: blur(0px);}
+  50% { filter: blur(8px);}
+  100% { filter: blur(0px);}
+}
+
+.shake {
+  animation: shake 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0);}
+  25% { transform: translateX(-5px);}
+  75% { transform: translateX(5px);}
+}
+
+.success {
+  animation: successPulse 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes successPulse {
+  0% { box-shadow: 0 0 0px 0 rgba(0, 255, 0, 0.6);}
+  100% { box-shadow: 0 0 10px 6px rgba(0, 255, 0, 0);}
+}
+/* ...existing code... */
+/* Add to your /style/index.css */
+
+/* Animated title */
+.animated-title {
+  animation: rainbowText 3s linear infinite alternate;
+  background: linear-gradient(90deg, #fff, #a084ee, #764ba2, #fff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes rainbowText {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Animated underline for inputs */
+.input-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+.input-underline {
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #a084ee, #764ba2, #e0c3fc);
+  background-size: 200% 200%;
+  transform: scaleX(0);
+  transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+  border-radius: 2px;
+}
+.input-group input:focus ~ .input-underline,
+.input-group input:not(:placeholder-shown) ~ .input-underline {
+  transform: scaleX(1);
+  animation: underlineMove 2s linear infinite;
+}
+@keyframes underlineMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Animated button */
+.animated-btn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  transition: background 0.3s, transform 0.2s;
+  z-index: 1;
+}
+.animated-btn span {
+  z-index: 2;
+  position: relative;
+}
+.animated-btn .arrow {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.animated-btn:hover .arrow {
+  opacity: 1;
+  transform: translateX(4px) scale(1.2);
+}
+.animated-btn::before {
+  content: "";
+  position: absolute;
+  left: -50%;
+  top: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, #a084ee, #fff, #e0c3fc, #764ba2);
+  background-size: 200% 200%;
+  z-index: 0;
+  transition: left 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+  opacity: 0.2;
+  animation: btnBgMove 2s linear infinite;
+}
+.animated-btn:hover::before {
+  left: 0;
+  opacity: 0.4;
+}
+@keyframes btnBgMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Add more animated circles for background */
+.animated-bg .circle:nth-child(3) {
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  left: 80%;
+  background: rgba(160, 132, 238, 0.18);
+  animation-delay: 1s, 3s;
+}
+
+/* ...keep your previous CSS for .circle, .shake, .success, etc... */
+
+/* ...existing code... */
+
+.login-container {
+  position: relative;
+  width: 350px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.login-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  padding: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: linear-gradient(270deg, #84eeb4, #0f0b13, #8c4aca, #d67676, #e60073);
+  background-size: 400% 400%;
+  filter: blur(6px) brightness(1.5);
+}
+
+.login-container:hover {
+  transform: scale(1.035);
+}
+
+.login-container:hover::before {
+  opacity: 1;
+  animation: neonBorder 2s linear infinite;
+}
+
+@keyframes neonBorder {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Ensure content stays above neon border */
+.login-container > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* ...existing code... */
+/* ...existing code... */
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+  background: none;
+  animation: snakeInside 5s cubic-bezier(.68,-0.55,.27,1.55) infinite alternate;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+}
+
+@keyframes snakeInside {
+  0% {
+    background-image: radial-gradient(circle at 10% 20%, #fff176 0 12px, #a084ee 20px, transparent 40px);
+  }
+  20% {
+    background-image: radial-gradient(circle at 80% 30%, #fff176 0 12px, #a084ee 20px, transparent 40px);
+  }
+  40% {
+    background-image: radial-gradient(circle at 60% 70%, #fff176 0 12px, #a084ee 20px, transparent 40px);
+  }
+  60% {
+    background-image: radial-gradient(circle at 30% 80%, #fff176 0 12px, #a084ee 20px, transparent 40px);
+  }
+  80% {
+    background-image: radial-gradient(circle at 70% 50%, #fff176 0 12px, #a084ee 20px, transparent 40px);
+  }
+  100% {
+    background-image: radial-gradient(circle at 10% 20%, #fff176 0 12px, #a084ee 20px, transparent 40px);
+  }
+}
+/* ...existing code... */
+
+.login-container {
+  position: relative;
+  width: 350px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+  overflow: hidden;
+  z-index: 1;
+  transition: 
+    transform 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+    box-shadow 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.login-container:hover {
+  transform: perspective(800px) rotateY(15deg) scale(1.04);
+  box-shadow: 0 0 40px 8px #a084ee, 0 0 80px 16px #e60073;
+}
+
+/* ...existing code... */
+/* ...existing code... */
+
+/* Remove the snake animation from the body */
+body::before {
+  content: "";
+  display: none;
+}
+
+/* ...existing code... */
