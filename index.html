@@ -1,37 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animated Login Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style/index.css">
-</head>
-<body>
-  <div class="login-container">
-    <div class="animated-bg">
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Login Page</title>
+    <!-- Google Fonts: Poppins for modern look -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style/index.css" />
+  </head>
+  <body>
+    <!-- Login Container with animated background circles -->
+    <div class="login-container">
+      <div class="animated-bg">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+      <h2 class="animated-title">Login</h2>
+      <!-- Login Form: autocomplete off to prevent browser autofill -->
+      <form id="loginForm" autocomplete="off">
+        <div class="input-group">
+          <!-- Username field: unique name/id, autocomplete off -->
+          <input
+            type="text"
+            id="userfield"
+            name="userfield"
+            required
+            placeholder=" "
+            autocomplete="off"
+          />
+          <label for="userfield">Username</label>
+          <span class="input-underline"></span>
+        </div>
+        <div class="input-group">
+          <!-- Password field: unique name/id, autocomplete new-password -->
+          <input
+            type="password"
+            id="passfield"
+            name="passfield"
+            required
+            placeholder=" "
+            autocomplete="new-password"
+          />
+          <label for="passfield">Password</label>
+          <span class="input-underline"></span>
+        </div>
+        <button type="submit" class="animated-btn">
+          <span>Sign In</span>
+          <!-- Animated arrow icon -->
+          <svg class="arrow" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#764ba2" d="M12 4v1.5h5.5v13H12V20l8-8z" />
+          </svg>
+        </button>
+      </form>
     </div>
-    <h2 class="animated-title">Login</h2>
-   <form id="loginForm" autocomplete="off">
-  <div class="input-group">
-    <input type="text" id="userfield" name="userfield" required placeholder=" " autocomplete="off" />
-    <label for="userfield">Username</label>
-    <span class="input-underline"></span>
-  </div>
-  <div class="input-group">
-    <input type="password" id="passfield" name="passfield" required placeholder=" " autocomplete="new-password" />
-    <label for="passfield">Password</label>
-    <span class="input-underline"></span>
-  </div>
-  <button type="submit" class="animated-btn">
-    <span>Sign In</span>
-    <svg class="arrow" width="24" height="24" viewBox="0 0 24 24"><path fill="#764ba2" d="M12 4v1.5h5.5v13H12V20l8-8z"/></svg>
-  </button>
-</form>
-  </div>
-  <script src="javascript/index.js"></script>
-</body>
+    <!-- Main JS -->
+    <script src="javascript/index.js"></script>
+  </body>
 </html>
